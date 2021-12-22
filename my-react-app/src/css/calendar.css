@@ -1,0 +1,23 @@
+.calendar-area{
+	width: 100%;
+	display: inline-block;
+}
+.calendar-yobi{
+	width: 14%;
+	display: inline-block;
+}
+.date-area{
+	width: 14%;
+	height: 100px;
+	border: .2px solid rgba(100, 100, 100, .7);
+	display: inline-block;
+	vertical-align: bottom;
+}
+.event-bar{
+	background-color: #4169e1;
+	color: white;
+	width: 110px;
+	display: block;
+	margin: 3px 5px;
+	padding: 0 10px;
+}
