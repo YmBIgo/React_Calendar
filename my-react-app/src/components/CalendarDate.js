@@ -22,6 +22,20 @@ const CalendarDate = (props) => {
 		date_input.value = fullDate()
 	}
 
+	const onClickEvent = (e, e_event) => {
+		e.stopPropagation()
+		let event_modal = document.getElementsByClassName("event-modal")[0];
+		event_modal.style.display = "block";
+		let event_modal_title = document.getElementsByClassName("event-modal-title")[0];
+		let event_modal_time  = document.getElementsByClassName("event-modal-content-time")[0];
+		let event_modal_place = document.getElementsByClassName("event-modal-content-place")[0];
+		let event_modal_id = document.getElementsByClassName("event-modal-content-id")[0]
+		event_modal_title.innerText = e_event.description;
+		event_modal_time.innerText  = e_event.time;
+		event_modal_place.innerText = e_event.place;
+		event_modal_id.innerText = e_event.id;
+	}
+
 	return(
 		<div className="date-area"
 			onClick={() => onClickDate()}
@@ -33,7 +47,8 @@ const CalendarDate = (props) => {
 			{events.filter(e_event => e_event.time == fullDate())
 				.map((e_event2, index) => {
 					return(
-						<span className="event-bar">
+						<span className="event-bar"
+							onClick={(e) => onClickEvent(e, e_event2)}>
 							{e_event2.description}
 						</span>
 					)

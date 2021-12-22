@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from "react"
-import CalendarComponent from "./components/CalendarComponent"
-import {useSelector} from "react-redux"
 
-import './App.css';
+import CalendarComponent from "./components/CalendarComponent"
 import AddEventModal from "./components/AddEventModal"
+import EventModal from "./components/EventModal"
+import './App.css';
 
 function App() {
 
-  const events = useSelector(state => state.events)
   const [date, setDate] = useState("2021-10-10");
   const useeffect_counter = 0
 
@@ -87,13 +86,11 @@ function App() {
           >
           次の月＞
           </button>
-
-          <span>{events.length}</span>
-
         </div>
         <CalendarComponent date={date} />
       </div>
       <AddEventModal />
+      <EventModal />
     </React.Fragment>
   );
 }
